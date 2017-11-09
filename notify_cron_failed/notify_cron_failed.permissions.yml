@@ -1,0 +1,3 @@
+administer notify cron failed:
+  title: 'Administer notify cron failed'
+  description: 'Allows a user to configure and administrate notify cron failed.'

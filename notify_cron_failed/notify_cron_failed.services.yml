@@ -1,0 +1,5 @@
+services:
+  notify_cron_failed_event_subscriber:
+    class: Drupal\notify_cron_failed\EventSubscriber\NotifyCronFailedSubscriber
+    tags:
+      - {name: event_subscriber}

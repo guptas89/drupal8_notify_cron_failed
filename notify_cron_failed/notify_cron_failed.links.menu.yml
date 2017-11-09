@@ -1,0 +1,6 @@
+notify_cron_failed.settings:
+  title: 'Notify Cron Failed Settings.'
+  parent: system.admin_config_system
+  description: 'Configure notify cron run failed module.'
+  route_name: notify_cron_failed.settings
+  weight: 20

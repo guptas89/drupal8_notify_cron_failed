@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Configuration system that lets administrators modify the workings of the site.
+ */
+
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function notify_cron_failed_help($route_name, RouteMatchInterface $route_match) {
+  
+  switch ($route_name) {
+    case 'notify_cron_failed.settings':
+    $output = '<h3>' . t('About') . '</h3>';
+    $output .= '<p>' . t('It is a simple utility module which will notify site administer about the cron failed. Whenever cron run will be failed it sends an email to the site administer.') . '</p>';
+    $output .= '<h3>' . t('Settings') . '</h3>';
+    $output .= '<dl>';
+    $output .= '<dt>' . t('<strong>Client ID:</strong>') . '</dt>';
+    $output .= '<dd>' . t('Write your own linking rules.<br/><b>Example:</b> Mysite.com related websites only! (Other none Mysite.com related websites will be removed) We are constantly looking for new perm Mysite.com link exchanges.') . '</dd>';
+    $output .= '</dl>';
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function notify_cron_failed_cron() {
+  \Drupal::configFactory()->getEditable('notify_cron_failed.settings')->set('notify_cron_failed_status',0)->save();
+}
+
+/**
+ * Implements hook_mail().
+ */
+function notify_cron_failed_mail($key, &$message, $params) {
+  $message['subject'] .= str_replace(array("\r", "\n"), '', $params['subject']);
+  $message['body'][] = $params['body'];
+}

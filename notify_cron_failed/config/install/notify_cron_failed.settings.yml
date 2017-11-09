@@ -1,0 +1,5 @@
+## Default value for configuration for fields.
+subject: 'Cron run failed'
+message: 'Cron has some issues it is not running as per schedule.'
+when: '1'
+notify_cron_failed_status: 0

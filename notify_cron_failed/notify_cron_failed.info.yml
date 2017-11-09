@@ -1,0 +1,6 @@
+name: Notify Cron Failed
+description: Sends an email to the site administer when cron run will be failed.
+type: module
+core: 8.x
+package: Utility
+configure: notify_cron_failed.config

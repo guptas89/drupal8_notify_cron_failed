@@ -1,0 +1,7 @@
+notify_cron_failed.settings:
+    path: '/admin/config/system/notify-cron-failed'
+    defaults:
+        _form: 'Drupal\notify_cron_failed\Form\NotifyCronFailedForm'
+        _title: 'Notify Cron Failed Settings.'
+    requirements:
+        _permission: 'administer notify cron failed'
